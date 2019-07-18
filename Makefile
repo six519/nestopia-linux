@@ -7,7 +7,7 @@ CC   = gcc
 CPP  = g++
 CFLAGS = -c -O3 -g3
 CFLAGS += -DNST_PRAGMA_ONCE_SUPPORT -D_SZ_ONE_DIRECTORY
-CFLAGS += -Isource -Isource/core -Isource/zlib -Isource/nesasm -Isource/core/api -Isource/core/board -Isource/core/input -Isource/linux/unzip 
+CFLAGS += -Isource -Isource/core -Isource/zlib -Isource/core/api -Isource/core/board -Isource/core/input -Isource/linux/unzip 
 CFLAGS += -Isource/core/vssystem -Isource/linux -Isource/nes_ntsc -I.. -I../nes_ntsc -Isource/linux/7zip 
 CFLAGS += `sdl-config --cflags` `pkg-config --cflags gtk+-2.0`
 CFLAGS += -finline-limit=2000 --param inline-unit-growth=1000 --param large-function-growth=1000 -finline-functions-called-once
