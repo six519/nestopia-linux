@@ -79,15 +79,17 @@ create_mainwindow (void)
   GtkWidget *sndapicombo;
   GtkWidget *label4;
   GtkWidget *fixed7;
+  GtkWidget *fixed8;
   GtkWidget *label12;
   GtkWidget *label13;
   GtkWidget *label23;
   GtkWidget *favorcombo;
   GtkWidget *spatchcombo;
   GtkWidget *misctab;
+  GtkWidget *assemblertab;
 
   mainwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (mainwindow), _("NEStopia"));
+  gtk_window_set_title (GTK_WINDOW (mainwindow), _("NEStopiASM"));
 
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
@@ -411,6 +413,14 @@ create_mainwindow (void)
   gtk_widget_show (misctab);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 4), misctab);
 
+  fixed8 = gtk_fixed_new ();
+  gtk_widget_show (fixed8);
+  gtk_container_add (GTK_CONTAINER (notebook1), fixed8);
+
+  assemblertab = gtk_label_new (_("Assembler"));
+  gtk_widget_show (assemblertab);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), assemblertab);
+
   g_signal_connect ((gpointer) mainwindow, "destroy",
                     G_CALLBACK (on_mainwindow_destroy),
                     NULL);
@@ -552,12 +562,14 @@ create_mainwindow (void)
   GLADE_HOOKUP_OBJECT (mainwindow, sndapicombo, "sndapicombo");
   GLADE_HOOKUP_OBJECT (mainwindow, label4, "label4");
   GLADE_HOOKUP_OBJECT (mainwindow, fixed7, "fixed7");
+  GLADE_HOOKUP_OBJECT (mainwindow, fixed8, "fixed8");
   GLADE_HOOKUP_OBJECT (mainwindow, label12, "label12");
   GLADE_HOOKUP_OBJECT (mainwindow, label13, "label13");
   GLADE_HOOKUP_OBJECT (mainwindow, label23, "label23");
   GLADE_HOOKUP_OBJECT (mainwindow, favorcombo, "favorcombo");
   GLADE_HOOKUP_OBJECT (mainwindow, spatchcombo, "spatchcombo");
   GLADE_HOOKUP_OBJECT (mainwindow, misctab, "misctab");
+  GLADE_HOOKUP_OBJECT (mainwindow, assemblertab, "assemblertab");
 
   return mainwindow;
 }
