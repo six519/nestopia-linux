@@ -8,6 +8,7 @@ void NstScheduleQuit();
 void NstStopPlaying();
 bool NstIsPlaying();
 void NstLoadGame(const char* filename);
+void NstLoadAsm(const char* filename);
 void NstLaunchConfig();
 
 #endif

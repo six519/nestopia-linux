@@ -79,7 +79,7 @@ static SDL_Joystick *joy[10];
 extern int lnxdrv_apimode;
 extern GtkWidget *mainwindow;
 
-static char savename[512], capname[512], gamebasename[512];
+static char savename[512], capname[512], gamebasename[512], asmname[512];
 static char caption[128];
 char rootname[512], lastarchname[512];
 
@@ -1551,6 +1551,11 @@ static int find_patch(char *patchname)
 	}
 
 	return 0;
+}
+
+void NstLoadAsm(const char* filename) {
+	strcpy(asmname, filename);
+	UIHelp_AsmLoaded();
 }
 
 // load a game or NES music file

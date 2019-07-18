@@ -5,6 +5,7 @@ void UIHelp_Init(int argc, char *argv[], LinuxNst::Settings *settings, LinuxNst:
 void UIHelp_Unload(void);
 void UIHelp_NSFLoaded(void);
 void UIHelp_GameLoaded(void);
+void UIHelp_AsmLoaded(void);
 GdkPixbuf *UIHelp_GetNSTIcon(void);
 
 #endif

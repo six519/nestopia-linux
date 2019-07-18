@@ -163,7 +163,7 @@ void on_openasm_clicked(GtkButton *button, gpointer user_data)
 		set_cur_path(filename);
 
 		//load assembly source code below
-		// function(filename) here
+		NstLoadAsm(filename);
 
 		g_free (filename);
 	}
@@ -603,6 +603,11 @@ void UIHelp_GameLoaded(void)
 	gtk_widget_set_sensitive(button_nsfstop, FALSE);
 	gtk_widget_set_sensitive(button_nsfplay, FALSE);
 	gtk_widget_set_sensitive(spin_nsf, FALSE);
+}
+
+void UIHelp_AsmLoaded(void)
+{
+	gtk_widget_set_sensitive(button_assemble, TRUE);
 }
 
 // returns NEStopia's icon for child windows to use
