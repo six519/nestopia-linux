@@ -17,6 +17,7 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <vector>
+#include <unistd.h>
 
 #include "core/api/NstApiEmulator.hpp"
 #include "core/api/NstApiVideo.hpp"
@@ -79,7 +80,7 @@ static SDL_Joystick *joy[10];
 extern int lnxdrv_apimode;
 extern GtkWidget *mainwindow;
 
-static char savename[512], capname[512], gamebasename[512], asmname[512];
+static char savename[512], capname[512], gamebasename[512], asmname[512], thisPath[512];
 static char caption[128];
 char rootname[512], lastarchname[512];
 
@@ -574,7 +575,11 @@ static void QuickLoad(int isvst)
 }
 
 void NstAssemble(void) {
-	
+	char finalCommand[1000];
+	strcpy(finalCommand, thisPath);
+	strcat(finalCommand, "/nesasm ");
+	strcat(finalCommand, asmname);
+	system(finalCommand);
 }
 
 // start playing
@@ -1027,12 +1032,15 @@ static void cleanup_after_io(void)
 		SetupVideo();
 	}
 }
-
+	
 int main(int argc, char *argv[])
 {
 	static SDL_Event event;
 	int i;
 	void* userData = (void*) 0xDEADC0DE;
+	
+	//get current path first
+	getcwd(thisPath, sizeof(thisPath));
 
 	// read the key/controller mapping
 	ctl_defs = parse_input_file();
