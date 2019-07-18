@@ -43,6 +43,13 @@ on_open_clicked                        (GtkButton       *button,
 
 }
 
+void
+on_openasm_clicked                        (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
 
 void
 on_playbutton_clicked                  (GtkButton       *button,

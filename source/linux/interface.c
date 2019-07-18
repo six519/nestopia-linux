@@ -419,7 +419,7 @@ create_mainwindow (void)
   gtk_widget_show (fixed8);
   gtk_container_add (GTK_CONTAINER (notebook1), fixed8);
 
-  openasmbutton = gtk_button_new_from_stock ("gtk-open");
+  openasmbutton = gtk_button_new_with_mnemonic (_("Open Source"));
   gtk_widget_show (openasmbutton);
   gtk_fixed_put (GTK_FIXED (fixed8), openasmbutton, 8, 8);
   gtk_widget_set_size_request (openasmbutton, 120, 40);
@@ -519,6 +519,9 @@ create_mainwindow (void)
                     NULL);
   g_signal_connect ((gpointer) spatchcombo, "changed",
                     G_CALLBACK (on_spatchcombo_changed),
+                    NULL);
+  g_signal_connect ((gpointer) openasmbutton, "clicked",
+                    G_CALLBACK (on_openasm_clicked),
                     NULL);
 
   atko = gtk_widget_get_accessible (mainwindow);

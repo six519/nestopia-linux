@@ -138,6 +138,40 @@ static void set_cur_path(char *inpath)
 	chdir(cwd);
 }
 
+void on_openasm_clicked(GtkButton *button, gpointer user_data)
+{
+	GtkWidget *dialog;
+	GtkFileFilter *filter;
+
+	dialog = gtk_file_chooser_dialog_new ("Choose a source code",
+					      GTK_WINDOW(mainwindow),
+					      GTK_FILE_CHOOSER_ACTION_OPEN,
+					      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+					      GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+					      NULL);
+
+	filter = gtk_file_filter_new();
+	gtk_file_filter_set_name(filter, "ASM files");
+	gtk_file_filter_add_pattern(filter, "*.asm");
+	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
+
+	if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
+	{
+		char *filename;
+		int i;
+		filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
+		set_cur_path(filename);
+
+		//load assembly source code below
+		// function(filename) here
+
+		g_free (filename);
+	}
+
+	gtk_widget_destroy (dialog);
+
+}
+
 void on_open_clicked(GtkButton *button, gpointer user_data)
 {
 	GtkWidget *dialog;
@@ -539,6 +573,7 @@ void UIHelp_Unload(void)
 	gtk_widget_set_sensitive(button_nsfplay, FALSE);
 	gtk_widget_set_sensitive(button_nsfstop, FALSE);
 	gtk_widget_set_sensitive(spin_nsf, FALSE);
+	gtk_widget_set_sensitive(button_assemble, FALSE);
 
 	// and kill the NSF text since we've unloaded too
 	gtk_label_set_text(GTK_LABEL(text_nsftitle), " ");
