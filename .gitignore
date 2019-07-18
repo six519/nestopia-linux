@@ -1,3 +1,5 @@
 .vscode/
 nst
 objs/
+obj/
+build/
