@@ -87,6 +87,8 @@ create_mainwindow (void)
   GtkWidget *spatchcombo;
   GtkWidget *misctab;
   GtkWidget *assemblertab;
+  GtkWidget *openasmbutton;
+  GtkWidget *assemblebutton;
 
   mainwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (mainwindow), _("NEStopiASM"));
@@ -417,6 +419,16 @@ create_mainwindow (void)
   gtk_widget_show (fixed8);
   gtk_container_add (GTK_CONTAINER (notebook1), fixed8);
 
+  openasmbutton = gtk_button_new_from_stock ("gtk-open");
+  gtk_widget_show (openasmbutton);
+  gtk_fixed_put (GTK_FIXED (fixed8), openasmbutton, 8, 8);
+  gtk_widget_set_size_request (openasmbutton, 120, 40);
+
+  assemblebutton = gtk_button_new_with_mnemonic (_("Assemble"));
+  gtk_widget_show (assemblebutton);
+  gtk_fixed_put (GTK_FIXED (fixed8), assemblebutton, 8, 56);
+  gtk_widget_set_size_request (assemblebutton, 120, 40);
+
   assemblertab = gtk_label_new (_("Assembler"));
   gtk_widget_show (assemblertab);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), assemblertab);
@@ -570,6 +582,8 @@ create_mainwindow (void)
   GLADE_HOOKUP_OBJECT (mainwindow, spatchcombo, "spatchcombo");
   GLADE_HOOKUP_OBJECT (mainwindow, misctab, "misctab");
   GLADE_HOOKUP_OBJECT (mainwindow, assemblertab, "assemblertab");
+  GLADE_HOOKUP_OBJECT (mainwindow, openasmbutton, "openasmbutton");
+  GLADE_HOOKUP_OBJECT (mainwindow, assemblebutton, "assemblebutton");
 
   return mainwindow;
 }

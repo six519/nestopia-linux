@@ -70,7 +70,7 @@ static GdkPixbuf *app_icon;
 
 GtkWidget *mainwindow;
 static GtkWidget *check_fullscreen, *check_unlimitspr, *check_controls, *check_alsa, *check_stereo, *check_exciter, *check_surround;
-static GtkWidget *combo_ntsc, *combo_rate, *combo_scale, *combo_videomode, *button_play, *button_nsfplay, *button_nsfstop, *spin_nsf;
+static GtkWidget *combo_ntsc, *combo_rate, *combo_scale, *combo_videomode, *button_play, *button_nsfplay, *button_nsfstop, *spin_nsf, *button_assemble;
 static GtkWidget *text_nsftitle, *text_nsfauthor, *text_nsfmaker, *text_volume, *scroll_volume, *notebook_main;
 static GtkWidget *combo_render, *combo_favor, *combo_scaleamt, *combo_config, *combo_spatch, *scroll_surround, *text_surround;
 static GtkWidget *combo_sndapi;
@@ -488,6 +488,7 @@ void UIHelp_Init(int argc, char *argv[], LinuxNst::Settings *settings, LinuxNst:
 	text_surround = lookup_widget(mainwindow, "surroundlabel");
 	scroll_volume = lookup_widget(mainwindow, "volumescroll");
 	scroll_surround = lookup_widget(mainwindow, "surrscroll");
+	button_assemble = lookup_widget(mainwindow, "assemblebutton");
 
 	// set them all up to reflect the saved settings
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_fullscreen), sSettings->GetFullscreen());
@@ -507,6 +508,7 @@ void UIHelp_Init(int argc, char *argv[], LinuxNst::Settings *settings, LinuxNst:
 	gtk_widget_set_sensitive(button_play, FALSE);
 	gtk_widget_set_sensitive(button_nsfstop, FALSE);
 	gtk_widget_set_sensitive(button_nsfplay, FALSE);
+	gtk_widget_set_sensitive(button_assemble, FALSE);
 	gtk_widget_set_sensitive(spin_nsf, FALSE);
 	gtk_range_set_value(GTK_RANGE(scroll_volume), sSettings->GetVolume());
 	gtk_range_set_value(GTK_RANGE(scroll_surround), sSettings->GetSurrMult());
