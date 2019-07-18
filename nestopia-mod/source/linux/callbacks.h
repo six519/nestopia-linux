@@ -28,6 +28,10 @@ on_playbutton_clicked                  (GtkButton       *button,
                                         gpointer         user_data);
 
 void
+on_assemblebutton_clicked                  (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
 on_nsfstop_clicked                     (GtkButton       *button,
                                         gpointer         user_data);
 

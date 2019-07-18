@@ -573,6 +573,9 @@ static void QuickLoad(int isvst)
 	Nes::Result res = machine.LoadState(is);
 }
 
+void NstAssemble(void) {
+	
+}
 
 // start playing
 void NstPlayGame(void)

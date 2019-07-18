@@ -223,6 +223,11 @@ void on_playbutton_clicked(GtkButton *button,  gpointer user_data)
 	NstPlayGame();
 }
 
+void on_assemblebutton_clicked(GtkButton *button,  gpointer user_data)
+{
+	NstAssemble();
+}
+
 void
 on_check_fullscreen_toggled             (GtkToggleButton *togglebutton,
                                         gpointer         user_data)

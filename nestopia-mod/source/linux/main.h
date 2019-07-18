@@ -2,6 +2,7 @@
 #define _MAIN_H_
 
 void NstPlayGame();
+void NstAssemble();
 void NstPlayNsf();
 void NstStopNsf();
 void NstScheduleQuit();

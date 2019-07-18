@@ -523,6 +523,9 @@ create_mainwindow (void)
   g_signal_connect ((gpointer) openasmbutton, "clicked",
                     G_CALLBACK (on_openasm_clicked),
                     NULL);
+  g_signal_connect ((gpointer) assemblebutton, "clicked",
+                    G_CALLBACK (on_assemblebutton_clicked),
+                    NULL);
 
   atko = gtk_widget_get_accessible (mainwindow);
   atk_object_set_description (atko, _("Nintendo Entertainment System emulator controls"));
