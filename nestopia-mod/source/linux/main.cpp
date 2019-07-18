@@ -574,12 +574,12 @@ static void QuickLoad(int isvst)
 	Nes::Result res = machine.LoadState(is);
 }
 
-void NstAssemble(void) {
+int NstAssemble(void) {
 	char finalCommand[1000];
 	strcpy(finalCommand, thisPath);
 	strcat(finalCommand, "/nesasm ");
 	strcat(finalCommand, asmname);
-	system(finalCommand);
+	return system(finalCommand);
 }
 
 // start playing

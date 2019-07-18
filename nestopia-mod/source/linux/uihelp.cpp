@@ -226,9 +226,12 @@ void on_playbutton_clicked(GtkButton *button,  gpointer user_data)
 void on_assemblebutton_clicked(GtkButton *button,  gpointer user_data)
 {
 	GtkWidget* msg = gtk_message_dialog_new(GTK_WINDOW(mainwindow), GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_OK, "Assembling code done!");
-	NstAssemble();
+	int ret = NstAssemble();
 
-	gtk_dialog_run(GTK_DIALOG(msg));
+	if(ret == 0) {
+		gtk_dialog_run(GTK_DIALOG(msg));
+	}
+
 	gtk_widget_destroy(msg);
 }
 
